@@ -33,7 +33,7 @@
                 <div id="resultados_busqueda" style="max-height:300px; overflow-y:auto; width:40rem; margin: 0 auto;"></div>
             </div>
             <!-- Input oculto para almacenar el ID del cliente seleccionado -->
-            <input type="hiddn" name="cliente_id" id="cliente_id" onclick="buscarClientes()" method="POST">
+            <input type="hidden" name="cliente_id" id="cliente_id" onclick="buscarClientes()" method="POST">
 
 
             <div class="centrado">

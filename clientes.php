@@ -31,37 +31,51 @@
         </div>
 
 
-        <div id="form-modal" class="hidden">
+        <div id="form-modal" class="hiden">
 
             <div class="form" id="form-container">
                 <h3>Nuevo Cliente</h3>
                 <form action="registrar.php" method="POST">
 
-                    <label for="fname">Nombre</label>
-                    <input type="text" id="fname" name="nombre" placeholder="Tu nombre..">
+                    <div>
+                        <label for="fname">Nombre</label>
+                        <input type="text" id="fname" name="nombre" placeholder="Tu nombre..">
+                    </div>
 
-                    <label for="lname">Apellido</label>
-                    <input type="text" id="lname" name="apellido" placeholder="Tu apellido..">
+                    <div>
+                        <label for="lname">Apellido</label>
+                        <input type="text" id="lname" name="apellido" placeholder="Tu apellido..">
 
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="Tu Email..">
+                    </div>
 
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono...">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="Tu Email..">
+                    </div>
 
-                    <label for="localidad">Localidad</label>
-                    <select id="localidad" name="localidad" class="borde-coloreado">
-                        <option value="" disabled selected>Elige la localidad</option>
-                        <option value="Valle Hermoso">Valle Hermoso</option>
-                        <option value="La Falda">La Falda</option>
-                        <option value="Huerta Grande">Huerta Grande</option>
-                        <option value="Casa Granda">Casa Grande</option>
-                        <option value="Villa Giardino">Villa Giardino</option>
-                        <option value="Otro">Otro..</option>
-                    </select>
+                    <div>
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono...">
+                    </div>
 
-                    <label for="direccion">Dirección</label>
-                    <textarea id="direccion" name="direccion" placeholder="Tu Dirección.." style="height:100px"></textarea>
+                    <div>
+                        <label for="localidad">Localidad</label>
+                        <select id="localidad" name="localidad" class="borde-coloreado">
+                            <option value="" disabled selected>Elige la localidad</option>
+                            <option value="Valle Hermoso">Valle Hermoso</option>
+                            <option value="La Falda">La Falda</option>
+                            <option value="Huerta Grande">Huerta Grande</option>
+                            <option value="Casa Granda">Casa Grande</option>
+                            <option value="Villa Giardino">Villa Giardino</option>
+                            <option value="Otro">Otro..</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="direccion">Dirección</label style="align-items:center;">
+
+                        <textarea id="direccion" name="direccion" placeholder="Tu Dirección.."></textarea>
+                    </div>
 
                     <button type="submit" value="Enviar">Añadir</button>
                 </form>

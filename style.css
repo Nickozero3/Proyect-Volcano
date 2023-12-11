@@ -73,8 +73,7 @@ main {
 
 input[type="text"],
 input[type="date"],
-select,
-textarea {
+select {
     margin: 10px auto;
     width: 60%;
     padding: 12px;
@@ -152,7 +151,7 @@ button:hover {
 }
 
 .boton {
-    font-size: small;
+    font-size:large;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
