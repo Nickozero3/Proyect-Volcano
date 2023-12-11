@@ -24,7 +24,7 @@
     <main style="display:flex; flex-direction: column;">
         <h2>Registrar Pago</h2>
 
-        <form class="pagos" action="añadir_Pago.php" method="POST" oninput="buscarClientes()" autocomplete="off">
+        <form class="pagos" action="añadir_Pago.php" method="POST" oninput="buscarClientes()" onclick="buscarClientes()" autocomplete="off">
             <div style="text-align:center;font-size: 20px; padding-bottom:20px; border-bottom:1px solid #000; margin-bottom:50px;">
                 <label for="cliente_id">Buscar y Seleccionar Cliente:</label>
                 <!-- Agrega un campo de entrada para buscar clientes -->
@@ -33,7 +33,7 @@
                 <div id="resultados_busqueda" style="max-height:300px; overflow-y:auto; width:40rem; margin: 0 auto;"></div>
             </div>
             <!-- Input oculto para almacenar el ID del cliente seleccionado -->
-            <input type="hidden" name="cliente_id" id="cliente_id" oninput="" method="POST">
+            <input type="hiddn" name="cliente_id" id="cliente_id" onclick="buscarClientes()" method="POST">
 
 
             <div class="centrado">
@@ -82,18 +82,22 @@
         // Función para buscar clientes y mostrar los resultados
         function buscarClientes() {
             var busqueda = $('#cliente_busqueda').val();
+            var clienteId = $('#cliente_id').val(); // Obtener el valor del input oculto
+
             // Realizar la solicitud Ajax para buscar clientes
             $.ajax({
                 url: 'buscar_clientes.php', // Reemplaza con el nombre de tu archivo PHP para buscar clientes
                 method: 'POST',
                 data: {
-                    busqueda: busqueda
+                    busqueda: busqueda,
+                    cliente_id: clienteId // Incluir el valor del input oculto
                 },
                 success: function(data) {
                     $('#resultados_busqueda').html(data);
                 }
             });
         }
+
         // Función para seleccionar un cliente y actualizar el campo oculto
         function seleccionarCliente(id, nombre) {
             $('#cliente_id').val(id);

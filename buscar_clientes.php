@@ -2,20 +2,24 @@
 // Conexión a la Base de Datos
 $conexion = mysqli_connect('localhost', 'root', '', 'clientes_volcano');
 
-// Verifica si $_POST['busqueda'] está definido y no está vacío
-$busqueda = isset($_POST['busqueda']) ? trim($_POST['busqueda']) : '';
+//// Recuperar los datos enviados por AJAX
+$busqueda = isset($_POST['busqueda']) ? $_POST['busqueda'] : '';
+$cliente_id = isset($_POST['cliente_id']) ? $_POST['cliente_id'] : '';
+
+// quita etiquetas html
 $busquedafix = mysqli_real_escape_string($conexion, $busqueda);
+
 
 if (!empty($busquedafix)) {
     // Realiza la búsqueda por nombre o apellido que contengan la cadena proporcionada
-    $sql = "SELECT id, nombre, apellido FROM clientes WHERE CONCAT(nombre, ' ', apellido) LIKE '%$busquedafix%'";
+    $sql = "SELECT id, nombre, apellido FROM clientes WHERE CONCAT(nombre, ' ', apellido) LIKE '%$busqueda%' OR id = '%$cliente_id%'";
     $result = $conexion->query($sql);
 
     // Muestra los resultados de la búsqueda
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo '<p class="resultado_cliente" 
-                        onclick="seleccionarCliente(' . $row['id'] . ', \'' . $row['nombre'] . ' ' . $row['apellido'] . '\');
+                        onclick="seleccionarCliente(' . $row['id'] . ', \'' . $row['nombre'] . ' ' . $row['apellido'] . '\')
                         "style="width: 90%;
                         background-color: #30364a;
                         color: white;
