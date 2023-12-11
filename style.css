@@ -1,0 +1,170 @@
+:root {
+    --blanco: #fff;
+    --azul: rgb(26, 26, 163);
+    --azul_oscuro: rgb(9, 9, 70);
+}
+
+@font-face {
+    font-family: "Volcano";
+    src: url(Font/TTSupermolotNeue-Bold.woff);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Volcano", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(204, 203, 206);
+}
+
+header {
+    background-color: #000;
+    height: 80px;
+}
+
+nav {
+    height: 100vh;
+    width: 145px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+nav img {
+    max-width: 80%;
+    margin-bottom: 45%;
+    margin-left: 10%;
+}
+
+button {
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 80%;
+    background-color: var(--azul);
+    color: var(--blanco);
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+main {
+    margin-left: 180px;
+    /* El ancho del nav más un poco de margen */
+    padding: 20px;
+}
+
+/* parte del Nuevo usuario */
+
+
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    margin: 10px auto;
+    width: 60%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+label,
+select {
+    padding: 12px 5px 10px 5px;
+    display: inline;
+
+}
+
+button[type="submit"] {
+    background-color: var(--azul);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1.2);
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    transition: background-color .3s;
+    width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+/* boton animacion */
+button:hover {
+    background-color: rgb(63, 10, 63);
+}
+
+/* parte del boton y usuarios */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    text-align: left;
+}
+
+.list {
+    margin: 20px auto 0;
+    max-width: 500px;
+}
+
+.add {
+    max-width: 140px;
+}
+
+/* formulario flotante */
+.hidden {
+    display: none;
+}
+
+/* Estilo del contenedor */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton {
+    font-size: small;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 80%;
+    background-color: var(--azul);
+    color: var(--blanco);
+    cursor: pointer;
+    text-align: center;
+    font-family: "volcano";
+    transition: background-color .3s;
+}
+
+.boton:hover {
+    background-color: rgb(63, 10, 63);
+}
