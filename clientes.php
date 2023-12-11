@@ -31,7 +31,7 @@
         </div>
 
 
-        <div id="form-modal" class="hiden">
+        <div id="form-modal" class="hidden">
 
             <div class="form" id="form-container">
                 <h3>Nuevo Cliente</h3>
