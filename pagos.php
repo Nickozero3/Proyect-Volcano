@@ -72,7 +72,7 @@
         </form>
 
         <h2 style="text-align:center; padding-top:20px; border-top:1px solid #000">Historial de pagos</h2>
-        <div id="historial_pagos" style='color: green;'>
+        <div id="historial_pagos" style='color: green; '>
             <div>
                 <p style="color:#000">Ingresa un término de búsqueda</p>
             </div>

@@ -18,7 +18,7 @@ if (!empty($busquedafix)) {
     // Muestra los resultados de la búsqueda
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<p class="resultado_cliente" 
+            echo '<p class="resultado_cliente"; 
                         onclick="seleccionarCliente(' . $row['id'] . ', \'' . $row['nombre'] . ' ' . $row['apellido'] . '\')
                         "style="width: 90%;
                         background-color: #30364a;
@@ -48,7 +48,7 @@ if (!empty($busquedafix)) {
                     $fechaVencimiento = date('d-m-y', strtotime($fecha . ' +1 month'));
                     break; // Solo necesitamos la fecha de vencimiento del primer pago
                 }
-                echo "<p style='color: red; font-size:x-large'>Próxima fecha de vencimiento: $fechaVencimiento.</p>";
+                echo "<p style='color: red; font-size:x-large; text-align:center;'>Próxima fecha de vencimiento: $fechaVencimiento.</p>";
 
                 
 
@@ -56,10 +56,11 @@ if (!empty($busquedafix)) {
                 $resultPagos->data_seek(0);
                 while ($rowPago = $resultPagos->fetch_assoc()) {
                     $fecha = $rowPago['fecha_pago'];
+                    echo '<div style="font-size:large;">';
                     echo '<p> | Fecha: ' . date('d-m-Y', strtotime($fecha . ' +1 month' . '-1 month')) . " ";
                     echo ' | Monto: ' . $rowPago['monto'] . " ";
                     echo ' | Método: ' . $rowPago['metodo_pago'] . " ";
-                    echo ' | Referencia: ' . $rowPago['referencia_pago'] . '</p>';
+                    echo ' | Referencia: ' . $rowPago['referencia_pago'] . '</p>','</div>';
                 }
             } else {
                 echo '<p>No hay historial de pagos</p>';

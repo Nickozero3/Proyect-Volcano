@@ -98,32 +98,33 @@
             // Mostrar usuarios con un bucle
             echo '<div style="margin-right: 10%;">';
             echo '<div style="border: 3px solid blue; padding: 10px; text-align: center; font-weight: bold; font-size: x-large;">Listado de Clientes</div>';
-            echo '<div style="display: flex; flex-direction: row; padding-bottom: 5px; list-style-type: none; margin: 0; padding: 0; font-size: large;">';
+            echo '<div style="display:flex; flex-direction:row; list-style-type: none;  margin-top:20px; margin-bottom:20px; font-size: large;">';
+
             echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 8px; border: 2px solid black;">Nombre</div>';
             echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Apellido</div>';
             echo '<div style="flex: 1.2; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Correo Electrónico</div>';
             echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Teléfono</div>';
             echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Localidad</div>';
-            echo '<div style="flex: 1; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Dirección</div>';
-            echo '<div style="flex: 1; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Fecha Registro - Primer mes</div>';
+            echo '<div style="flex: 1.0; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Dirección</div>';
+            echo '<div style="flex: 1.0; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Fecha Registro - Primer mes</div>';
             echo '</div>';
-
             echo '</div>';
 
 
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<li style="list-style:none; font-size:large;  padding-right:10%">';
-                echo '<ul style="display: flex; flex-direction: row; border-bottom: 1px solid black; padding: 5px; list-style-type: none; margin: 2px; padding: 2px; "  padding-right:10%>';
-                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Nombre']) . '</li>';
+                echo '<li style="list-style:none; font-size:large; padding-right:10%;">';
+                echo '<ul style="display: flex; flex-direction: row; border-bottom: 1px solid black; padding: 5px; list-style-type: none; margin: 2px; padding: 2px; ">';
+                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; ">' . ucfirst($row['Nombre']) . '</li>';
                 echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Apellido']) . '</li>';
                 echo '<li style="flex: 1.2; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Email']) . '</li>';
                 echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . $row['Telefono'] . '</li>';
                 echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Localidad']) . '</li>';
-                echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px; ">' . ucfirst($row['Direccion']) . '</li>';
+                echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Direccion']) . '</li>';
                 echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px; text-align:center;">' . $row['FechaReg'] . '</li>';
                 echo '</ul>';
                 echo '</li>';
             }
+
             echo '</table>';
             ?>
         </ul>

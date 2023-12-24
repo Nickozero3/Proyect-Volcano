@@ -1,7 +1,9 @@
 :root {
     --blanco: #fff;
-    --azul: rgb(26, 26, 163);
+    --azul_raro: #008c9e;
     --azul_oscuro: rgb(9, 9, 70);
+    --azul_claro: rgb(76, 76, 201);
+    --gris: #343838;
 }
 
 @font-face {
@@ -12,11 +14,11 @@
 * {
     box-sizing: border-box;
     font-family: "Volcano", sans-serif;
+    background-color: var(--gris);
 }
 
 body {
     margin: 0;
-    background-color: rgb(204, 203, 206);
 }
 
 header {
@@ -151,7 +153,7 @@ button:hover {
 }
 
 .boton {
-    font-size:large;
+    font-size: large;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
