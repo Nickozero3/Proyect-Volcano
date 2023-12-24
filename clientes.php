@@ -96,17 +96,20 @@
             $result = mysqli_query($db, $query);
 
             // Mostrar usuarios con un bucle
-            echo '<li style=" list-style:none; border: 3px solid blue; padding: 10px; margin-bottom: 20px; margin-right:10%; text-align: center; font-weight: bold; font-size: x-large; padding-right:10%">Listado de Clientes</li>';
-            echo '<ul style="display: flex;  flex-direction: row; padding-bottom: 5px; list-style-type: none; margin: 0; padding: 0; font-size:large; padding-right:10%">';
-            echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Nombre</li>';
-            echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Apellido</li>';
-            echo '<li style="flex: 1.2; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Correo Electrónico</li>';
-            echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Teléfono</li>';
-            echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Localidad</li>';
-            echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Dirección</li>';
-            echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px;  border: 2px solid black;">Fecha Registro - Primer mes</li>';
-            echo '</ul>';
-            echo '</li>';
+            echo '<div style="margin-right: 10%;">';
+            echo '<div style="border: 3px solid blue; padding: 10px; text-align: center; font-weight: bold; font-size: x-large;">Listado de Clientes</div>';
+            echo '<div style="display: flex; flex-direction: row; padding-bottom: 5px; list-style-type: none; margin: 0; padding: 0; font-size: large;">';
+            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 8px; border: 2px solid black;">Nombre</div>';
+            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Apellido</div>';
+            echo '<div style="flex: 1.2; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Correo Electrónico</div>';
+            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Teléfono</div>';
+            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Localidad</div>';
+            echo '<div style="flex: 1; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Dirección</div>';
+            echo '<div style="flex: 1; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Fecha Registro - Primer mes</div>';
+            echo '</div>';
+
+            echo '</div>';
+
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<li style="list-style:none; font-size:large;  padding-right:10%">';
