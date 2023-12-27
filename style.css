@@ -1,9 +1,11 @@
 :root {
+    --negro: #000;
     --blanco: #fff;
+    --gris: rgb(133, 133, 133);
     --azul_raro: #008c9e;
     --azul_oscuro: rgb(9, 9, 70);
-    --azul_claro: rgb(76, 76, 201);
-    --gris: #343838;
+    --azul_claro: rgb(34, 34, 201);
+
 }
 
 @font-face {
@@ -14,22 +16,23 @@
 * {
     box-sizing: border-box;
     font-family: "Volcano", sans-serif;
-    background-color: var(--gris);
 }
 
 body {
+    color: var(--negro);
+    background-color: rgb(184, 184, 184);
     margin: 0;
 }
 
 header {
-    background-color: #000;
-    height: 80px;
+    background-color: var(--negro);
+    height: 100px;
 }
 
 nav {
     height: 100vh;
     width: 145px;
-    background-color: black;
+    background-color: var(--negro);
     position: fixed;
     top: 0;
     left: 0;
@@ -51,7 +54,7 @@ button {
     margin: 10px;
     width: 80%;
     background-color: var(--azul);
-    color: var(--blanco);
+    color: var(--c);
     border: none;
     cursor: pointer;
     transition: background-color .3s;
@@ -59,7 +62,7 @@ button {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: var(--blanco);
     width: 100%;
 }
 
@@ -79,7 +82,7 @@ select {
     margin: 10px auto;
     width: 60%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--gris);
     border-radius: 4px;
     resize: none;
     overflow: hidden;
@@ -94,8 +97,9 @@ select {
 }
 
 button[type="submit"] {
-    background-color: var(--azul);
-    color: white;
+
+    background-color: var(--azul_claro);
+    color: var(--blanco);
     padding: 15px 20px;
     border: none;
     box-shadow: 0 0 8px rgba(0, 0, 0, 1.2);
@@ -158,7 +162,7 @@ button:hover {
     padding: 15px;
     margin: 10px;
     width: 80%;
-    background-color: var(--azul);
+    background-color: var(--azul_claro);
     color: var(--blanco);
     cursor: pointer;
     text-align: center;
