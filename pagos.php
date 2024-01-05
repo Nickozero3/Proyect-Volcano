@@ -49,7 +49,7 @@
 
                 <div>
                     <label style="margin-right: 55px;" for="fecha_pago">Fecha de Pago:</label>
-                    <input style="font-size: 20px; width:60%;" type="date" name="fecha_pago" value="<?php echo date('Y-m-d'); ?>" required>
+                    <input style="font-size: 20px;" type="date" name="fecha_pago" value="<?php echo date('Y-m-d'); ?>" required>
                 </div>
 
                 <div>
@@ -74,7 +74,7 @@
         <h2 style="text-align:center; padding-top:20px; border-top:1px solid #000">Historial de pagos</h2>
         <div id="historial_pagos" style='color: green; '>
             <div>
-                <p style="color:#000">Ingresa un término de búsqueda</p>
+                <p style="color:#000">Ingresa un Nombre o Apellido para la búsqueda</p>
             </div>
 
     </main>
@@ -102,8 +102,10 @@
         function seleccionarCliente(id, nombre) {
             $('#cliente_id').val(id);
             $('#cliente_busqueda').val(nombre);
+            // /Ocultar los resultados de búsqueda
             $('#resultados_busqueda').html('');
         }
+
     </script>
 </body>
 

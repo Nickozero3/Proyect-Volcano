@@ -53,8 +53,8 @@ button {
     padding: 15px;
     margin: 10px;
     width: 80%;
-    background-color: var(--azul);
-    color: var(--c);
+    background-color: var(--azul_claro);
+    color: var(--blanco);
     border: none;
     cursor: pointer;
     transition: background-color .3s;
@@ -80,7 +80,7 @@ input[type="text"],
 input[type="date"],
 select {
     margin: 10px auto;
-    width: 60%;
+    width: 75%;
     padding: 12px;
     border: 1px solid var(--gris);
     border-radius: 4px;
@@ -110,25 +110,19 @@ button[type="submit"] {
     width: 200px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
     input[type="text"],
     textarea {
-        width: 100%;
+        width: 85%;
         margin-top: 0;
     }
+
 }
 
 /* boton animacion */
 button:hover {
     background-color: rgb(63, 10, 63);
-}
-
-/* parte del boton y usuarios */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .title {
@@ -140,21 +134,11 @@ button:hover {
     max-width: 500px;
 }
 
-.add {
-    max-width: 140px;
-}
-
 /* formulario flotante */
 .hidden {
     display: none;
 }
 
-/* Estilo del contenedor */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .boton {
     font-size: large;
@@ -172,4 +156,9 @@ button:hover {
 
 .boton:hover {
     background-color: rgb(63, 10, 63);
+}
+
+.add{
+    display: flex;
+    right:20px;
 }

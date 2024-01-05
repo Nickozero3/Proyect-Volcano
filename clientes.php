@@ -20,73 +20,63 @@
     </nav>
 
     <main>
-        <div class="header">
 
-            <div class="title">
-                <h2>Clientes</h2>
+        <div>
+            <div id="form-modal" class="hidden">
+                <div class="form" id="form-container">
+                    <h3>Nuevo Cliente</h3>
+                    <form action="registrar.php" method="POST" autocomplete="off">
+
+                        <div>
+                            <label for="fname">Nombre</label>
+                            <input type="text" id="fname" name="nombre" placeholder="Tu nombre.." required>
+                        </div>
+
+                        <div>
+                            <label for="lname">Apellido</label>
+                            <input type="text" id="lname" name="apellido" placeholder="Tu apellido.." required>
+
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" placeholder="Tu Email.." required>
+                        </div>
+
+                        <div>
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono..." required>
+                        </div>
+
+                        <div>
+                            <label for="localidad">Localidad</label>
+                            <select id="localidad" name="localidad" class="borde-coloreado" required>
+                                <option value="" disabled selected>Elige la localidad</option>
+                                <option value="Valle Hermoso">Valle Hermoso</option>
+                                <option value="La Falda">La Falda</option>
+                                <option value="Huerta Grande">Huerta Grande</option>
+                                <option value="Casa Granda">Casa Grande</option>
+                                <option value="Villa Giardino">Villa Giardino</option>
+                                <option value="Otro">Otro..</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="direccion">Dirección</label style="align-items:center;">
+
+                            <textarea id="direccion" name="direccion" placeholder="Tu Dirección.." required></textarea>
+                        </div>
+
+                        <button type="submit" value="Enviar">Añadir</button>
+                    </form>
+                </div>
             </div>
-
-            <button class="add" onclick="showForm()">Añadir Cliente</button>
+            <button class="add" id="add" onclick="showForm()">Añadir Cliente</button>
 
         </div>
 
 
-        <div id="form-modal" class="hidden">
-
-            <div class="form" id="form-container">
-                <h3>Nuevo Cliente</h3>
-                <form action="registrar.php" method="POST">
-
-                    <div>
-                        <label for="fname">Nombre</label>
-                        <input type="text" id="fname" name="nombre" placeholder="Tu nombre..">
-                    </div>
-
-                    <div>
-                        <label for="lname">Apellido</label>
-                        <input type="text" id="lname" name="apellido" placeholder="Tu apellido..">
-
-                    </div>
-
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" placeholder="Tu Email..">
-                    </div>
-
-                    <div>
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono...">
-                    </div>
-
-                    <div>
-                        <label for="localidad">Localidad</label>
-                        <select id="localidad" name="localidad" class="borde-coloreado">
-                            <option value="" disabled selected>Elige la localidad</option>
-                            <option value="Valle Hermoso">Valle Hermoso</option>
-                            <option value="La Falda">La Falda</option>
-                            <option value="Huerta Grande">Huerta Grande</option>
-                            <option value="Casa Granda">Casa Grande</option>
-                            <option value="Villa Giardino">Villa Giardino</option>
-                            <option value="Otro">Otro..</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="direccion">Dirección</label style="align-items:center;">
-
-                        <textarea id="direccion" name="direccion" placeholder="Tu Dirección.."></textarea>
-                    </div>
-
-                    <button type="submit" value="Enviar">Añadir</button>
-                </form>
-
-            </div>
-
-        </div>
-
-
-
-        <ul id="users-list">
+        <div id="users-list">
             <?php
             // Conectar a la BD  -->
             $db = mysqli_connect("localhost", "root", "", "clientes_volcano");
@@ -97,40 +87,53 @@
 
             // Mostrar usuarios con un bucle
             echo '<div style="margin-right: 10%;">';
-            echo '<div style="border: 3px solid blue; padding: 10px; text-align: center; font-weight: bold; font-size: x-large;">Listado de Clientes</div>';
-            echo '<div style="display:flex; flex-direction:row; list-style-type: none;  margin-top:20px; margin-bottom:20px; font-size: large;">';
-
-            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 8px; border: 2px solid black;">Nombre</div>';
-            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Apellido</div>';
-            echo '<div style="flex: 1.2; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Correo Electrónico</div>';
-            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Teléfono</div>';
-            echo '<div style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Localidad</div>';
-            echo '<div style="flex: 1.0; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Dirección</div>';
-            echo '<div style="flex: 1.0; border-left: 2px solid black; padding-left: 5px; border: 2px solid black;">Fecha Registro - Primer mes</div>';
-            echo '</div>';
-            echo '</div>';
-
+            echo '<div style="border: 3px solid blue; padding: 15px; text-align:center; font-size: x-large; margin-bottom:20px;"> Listado de Clientes </div>'; // Listado de clientes 
+            echo '<div style="overflow-x: auto; overflow-y: auto; max-height:700px">'; // Contenedor para hacer la tabla responsive
+            echo '<table style="width: 100%; border-collapse: collapse; text-align: center; box-sizing: border-box;">';
+            echo '<tr style="font-size:18px;">';
+            echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Nombre</th>';
+            echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Apellido</th>';
+            echo '<th style="width: 15%; border: 2px solid black; padding-top:20px;">Correo Electrónico</th>';
+            echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Teléfono</th>';
+            echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Localidad</th>';
+            echo '<th style="width: 15%; border: 2px solid black; padding-top:20px;">Dirección</th>';
+            echo '<th style="width: 15%; border: 2px solid black; padding-top:20px; min-width: 150px;">Fecha Registro - Primer mes</th>';
+            echo '</tr>';
 
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<li style="list-style:none; font-size:large; padding-right:10%;">';
-                echo '<ul style="display: flex; flex-direction: row; border-bottom: 1px solid black; padding: 5px; list-style-type: none; margin: 2px; padding: 2px; ">';
-                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px; ">' . ucfirst($row['Nombre']) . '</li>';
-                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Apellido']) . '</li>';
-                echo '<li style="flex: 1.2; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Email']) . '</li>';
-                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . $row['Telefono'] . '</li>';
-                echo '<li style="flex: 0.8; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Localidad']) . '</li>';
-                echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px;">' . ucfirst($row['Direccion']) . '</li>';
-                echo '<li style="flex: 1; border-left: 2px solid black; padding-left: 5px; text-align:center;">' . $row['FechaReg'] . '</li>';
-                echo '</ul>';
-                echo '</li>';
+                echo '<tr>';
+                $fields = ['Nombre', 'Apellido', 'Email', 'Telefono', 'Localidad', 'Direccion', 'FechaReg'];
+
+                foreach ($fields as $field) {
+                    $minWidthStyle = ($field === 'Email') ? 'min-width: 25ch;' : '';
+
+                    echo '<td style="border: 2px solid black; ' . $minWidthStyle . '">' . ucfirst($row[$field]) . '</td>';
+                }
+                echo '</tr>';
             }
 
             echo '</table>';
+            echo '</div>';
             ?>
-        </ul>
+        </div>
+
 
     </main>
-    <script src="script.js"></script>
+
 </body>
+<script>
+    // muestra el formulario
+    function showForm() {
+        var formModal = document.getElementById('form-modal');
+        formModal.classList.toggle('hidden');
+        var addButton = document.getElementById('add');
+
+        if (formModal.classList.contains('hidden')) {
+            addButton.textContent = 'Añadir Cliente';
+        } else {
+            addButton.textContent = 'Cerrar formulario';
+        }
+    }
+</script>
 
 </html>
