@@ -20,36 +20,35 @@
     </nav>
 
     <main>
-
-        <div>
+        <div class="content">
             <div id="form-modal" class="hidden">
                 <div class="form" id="form-container">
                     <h3>Nuevo Cliente</h3>
                     <form action="registrar.php" method="POST" autocomplete="off">
 
                         <div>
-                            <label for="fname">Nombre</label>
+                            <label class="añadirlabel" for="fname">Nombre</label>
                             <input type="text" id="fname" name="nombre" placeholder="Tu nombre.." required>
                         </div>
 
                         <div>
-                            <label for="lname">Apellido</label>
+                            <label class="añadirlabel" for="lname">Apellido</label>
                             <input type="text" id="lname" name="apellido" placeholder="Tu apellido.." required>
 
                         </div>
 
                         <div>
-                            <label for="email">Email</label>
+                            <label class="añadirlabel" for="email">Email</label>
                             <input type="text" id="email" name="email" placeholder="Tu Email.." required>
                         </div>
 
                         <div>
-                            <label for="telefono">Teléfono</label>
+                            <label class="añadirlabel" for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono..." required>
                         </div>
 
                         <div>
-                            <label for="localidad">Localidad</label>
+                            <label class="añadirlabel" for="localidad">Localidad</label>
                             <select id="localidad" name="localidad" class="borde-coloreado" required>
                                 <option value="" disabled selected>Elige la localidad</option>
                                 <option value="Valle Hermoso">Valle Hermoso</option>
@@ -62,7 +61,7 @@
                         </div>
 
                         <div>
-                            <label for="direccion">Dirección</label style="align-items:center;">
+                            <label class="añadirlabel" for="direccion">Dirección</label style="align-items:center;">
 
                             <textarea id="direccion" name="direccion" placeholder="Tu Dirección.." required></textarea>
                         </div>
@@ -71,7 +70,7 @@
                     </form>
                 </div>
             </div>
-            <button class="add" id="add" onclick="showForm()">Añadir Cliente</button>
+            <button class="add" id="add" style="float:right;" onclick="showForm()">Añadir Cliente</button>
 
         </div>
 
@@ -87,7 +86,7 @@
 
             // Mostrar usuarios con un bucle
             echo '<div style="margin-right: 10%;">';
-            echo '<div style="border: 3px solid blue; padding: 15px; text-align:center; font-size: x-large; margin-bottom:20px;"> Listado de Clientes </div>'; // Listado de clientes 
+            echo '<div style="border: 3px solid blue; padding: 15px; text-align:center; font-size: x-large; margin-bottom:20px; max-width: 90%;"> Listado de Clientes </div>'; // Listado de clientes 
             echo '<div style="overflow-x: auto; overflow-y: auto; max-height:700px">'; // Contenedor para hacer la tabla responsive
             echo '<table style="width: 100%; border-collapse: collapse; text-align: center; box-sizing: border-box;">';
             echo '<tr style="font-size:18px;">';
@@ -97,7 +96,7 @@
             echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Teléfono</th>';
             echo '<th style="width: 10%; border: 2px solid black; padding-top:20px;">Localidad</th>';
             echo '<th style="width: 15%; border: 2px solid black; padding-top:20px;">Dirección</th>';
-            echo '<th style="width: 15%; border: 2px solid black; padding-top:20px; min-width: 150px;">Fecha Registro - Primer mes</th>';
+            echo '<th style="width: 15%; border: 2px solid black; padding-top:20px; padding: 10px 20px; min-width: 150px;">Fecha Registro - Primer mes</th>';
             echo '</tr>';
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -107,7 +106,7 @@
                 foreach ($fields as $field) {
                     $minWidthStyle = ($field === 'Email') ? 'min-width: 25ch;' : '';
 
-                    echo '<td style="border: 2px solid black; ' . $minWidthStyle . '">' . ucfirst($row[$field]) . '</td>';
+                    echo '<td style="border: 2px solid black; padding: 10px 10px; ' . $minWidthStyle . '">' . ucfirst($row[$field]) . '</td>';
                 }
                 echo '</tr>';
             }
@@ -119,21 +118,7 @@
 
 
     </main>
-
+    <script src="script.js"></script>
 </body>
-<script>
-    // muestra el formulario
-    function showForm() {
-        var formModal = document.getElementById('form-modal');
-        formModal.classList.toggle('hidden');
-        var addButton = document.getElementById('add');
-
-        if (formModal.classList.contains('hidden')) {
-            addButton.textContent = 'Añadir Cliente';
-        } else {
-            addButton.textContent = 'Cerrar formulario';
-        }
-    }
-</script>
 
 </html>

@@ -11,7 +11,12 @@ $sql = "INSERT INTO historial_pagos(cliente_id, monto, fecha_pago, metodo_pago, 
         VALUES ('$cliente_id', '$monto', '$fecha_pago', '$metodo_pago', '$referencia_pago')";
 
 if ($conexion->query($sql) === TRUE) {
+    // Redireccionar a la página anterior
+    header("Location: {$_SERVER['HTTP_REFERER']}");
+
+    // Enviar parámetro GET de éxito
     header("Location: {$_SERVER['HTTP_REFERER']}?success=true");
+
     exit();
 } else {
     echo "Error al registrar el pago: " . $conexion->error;

@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="imgs/320500709_876919420155327_52128729890993267_n.jpg" type="image/jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
     <!-- Agrega la referencia a jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <title>Gym</title>
 </head>
 
-<body>
+<body style="background-color:rgb(184, 184, 184);" class="text-black">
     <header></header>
     <nav>
         <a href="index.php"><img src="imgs/320500709_876919420155327_52128729890993267_n.jpg" alt="Logo" /></a>
@@ -21,7 +25,7 @@
         <a href="pagos.php" class="boton">Pagos</a>
     </nav>
 
-    <main style="display:flex; flex-direction: column;">
+    <main style="display:flex; flex-direction: column; padding-top:3rem;">
         <h2>Registrar Pago</h2>
 
         <form class="pagos" action="añadir_Pago.php" method="POST" oninput="buscarClientes()" onclick="buscarClientes()" autocomplete="off">
@@ -38,7 +42,7 @@
 
             <div class="centrado">
                 <div>
-                    <label style="margin-right: 100px;" for="monto">Servicio:</label>
+                    <label id="monto">Servicio:</label>
                     <select name="monto" id="monto" required; style="font-size: 20px;" required>
                         <option value="" disabled selected>Seleccione un monto</option>
                         <option value="5900"> Musculacion 3 Dias a la semana x 5900$</option>
@@ -48,12 +52,12 @@
                 </div>
 
                 <div>
-                    <label style="margin-right: 55px;" for="fecha_pago">Fecha de Pago:</label>
+                    <label id="fecha_pago">Fecha de Pago:</label>
                     <input style="font-size: 20px;" type="date" name="fecha_pago" value="<?php echo date('Y-m-d'); ?>" required>
                 </div>
 
                 <div>
-                    <label style="margin-right: 40px;" for="metodo_pago">Método de Pago:</label>
+                    <label  id="metodo_pago">Método de Pago:</label>
                     <select style="font-size:large" id="metodo_pago" name="metodo_pago" class="borde-coloreado" required>
                         <option value="" disabled selected>Elige el Metodo</option>
                         <option value="MercadoPago">Mercado Pago</option>
@@ -63,11 +67,11 @@
                 </div>
 
                 <div>
-                    <label style="margin-right: 17px;" for="referencia_pago">Referencia de Pago:</label>
+                    <label id="referencia_pago">Referencia de Pago:</label>
                     <input style="font-size:large" placeholder="¿a quien?..." type="text" name="referencia_pago" required>
                 </div>
 
-                <button type="submit">Registrar Pago</button>
+                <button class="m-5" type="submit">Registrar Pago</button>
             </div>
         </form>
 
@@ -76,37 +80,9 @@
             <div>
                 <p style="color:#000">Ingresa un Nombre o Apellido para la búsqueda</p>
             </div>
-
+        </div>
     </main>
-    <script>
-        // Función para buscar clientes y mostrar los resultados
-        function buscarClientes() {
-            var busqueda = $('#cliente_busqueda').val();
-            var clienteId = $('#cliente_id').val(); // Obtener el valor del input oculto
-
-            // Realizar la solicitud Ajax para buscar clientes
-            $.ajax({
-                url: 'buscar_clientes.php', // Reemplaza con el nombre de tu archivo PHP para buscar clientes
-                method: 'POST',
-                data: {
-                    busqueda: busqueda,
-                    cliente_id: clienteId // Incluir el valor del input oculto
-                },
-                success: function(data) {
-                    $('#resultados_busqueda').html(data);
-                }
-            });
-        }
-
-        // Función para seleccionar un cliente y actualizar el campo oculto
-        function seleccionarCliente(id, nombre) {
-            $('#cliente_id').val(id);
-            $('#cliente_busqueda').val(nombre);
-            // /Ocultar los resultados de búsqueda
-            $('#resultados_busqueda').html('');
-        }
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

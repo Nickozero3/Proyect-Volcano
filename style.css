@@ -31,7 +31,7 @@ header {
 
 nav {
     height: 100vh;
-    width: 145px;
+    width: auto;
     background-color: var(--negro);
     position: fixed;
     top: 0;
@@ -52,7 +52,6 @@ button {
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
-    width: 80%;
     background-color: var(--azul_claro);
     color: var(--blanco);
     border: none;
@@ -92,8 +91,12 @@ select {
 label,
 select {
     padding: 12px 5px 10px 5px;
-    display: inline;
+    display: inline-block;
 
+}
+
+input[type="value"]{
+    min-width: 45px
 }
 
 button[type="submit"] {
@@ -107,7 +110,7 @@ button[type="submit"] {
     cursor: pointer;
     float: right;
     transition: background-color .3s;
-    width: 200px;
+    width: 150px;
 }
 
 @media screen and (max-width: 700px) {
@@ -139,6 +142,9 @@ button:hover {
     display: none;
 }
 
+label {
+    min-width: 15%;
+}
 
 .boton {
     font-size: large;
@@ -158,7 +164,13 @@ button:hover {
     background-color: rgb(63, 10, 63);
 }
 
-.add{
-    display: flex;
-    right:20px;
+.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+textarea {
+    min-height: 50px;
+    width: 500px;
 }
