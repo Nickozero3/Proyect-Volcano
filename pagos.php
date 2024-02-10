@@ -57,7 +57,7 @@
                 </div>
 
                 <div>
-                    <label  id="metodo_pago">Método de Pago:</label>
+                    <label id="metodo_pago">Método de Pago:</label>
                     <select style="font-size:large" id="metodo_pago" name="metodo_pago" class="borde-coloreado" required>
                         <option value="" disabled selected>Elige el Metodo</option>
                         <option value="MercadoPago">Mercado Pago</option>
@@ -82,7 +82,20 @@
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js">
+        // Al inicio de la página
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('pago') === 'acreditado') {
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Pago acreditado',
+                text: 'El pago se registró correctamente!'
+            });
+
+        }
+    </script>
 </body>
 
 </html>

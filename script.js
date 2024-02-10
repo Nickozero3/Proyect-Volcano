@@ -68,6 +68,7 @@ function showForm() {
     formModal.style.paddingBottom = "2rem";
     formModal.style.border = "2px solid black";
     formModal.style.zIndex = "999";
+
     formModal.style.left = "25%"
     formModal.style.right = "25%"
 
@@ -77,25 +78,4 @@ function showForm() {
     addButton.style.zIndex = "999"
   }
 
-}
-
-
-function VerificarURl() {
-
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('success')) {
-
-    // Mostrar alerta de pago exitoso
-    Swal.fire({
-      icon: 'success',
-      title: 'Pago exitoso',
-      text: 'El pago se realizó correctamente!'
-    }).then(() => { // Obtener URL base
-      const baseUrl = currentUrl.split('?')[0];
-      // Resetear URL
-      window.location.href = baseUrl
-    });
-
-
-  }
 }
